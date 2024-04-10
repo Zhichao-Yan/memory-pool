@@ -292,7 +292,7 @@ void memory_pool_free(memory_pool *mp, void *ptr)
     p->alloc_size -= ck->size;                   
     // 减小内存池p的已分配程序空间大小              
     p->prog_alloc_size -= (ck->size - MP_CHUNK_HEAD - MP_CHUNK_POINTER);    
-    merge_free_chunk(mp, p, ck);
+    merge_free_chunks(mp, p, ck);
     return;
 }
 

@@ -6,6 +6,7 @@
 #endif
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #define mem_size_t unsigned long long
 #define KB (mem_size_t)(1 << 10)
@@ -45,11 +46,11 @@ typedef struct memory_pool
 #endif
 } memory_pool;
 
+memory_pool *memory_pool_init(mem_size_t pool_size, mem_size_t max_size);
 void *memory_pool_alloc(memory_pool *mp, mem_size_t size);
 void memory_pool_free(memory_pool *mp, void *ptr);
 void *memory_pool_clear(memory_pool *mp);
 void memory_pool_destroy(memory_pool *mp);
-
 
 void memory_pool_count(memory_pool *mp, mem_size_t *pool_list_length);
 void memory_pool_info(memory_pool *mp, pool *p,
